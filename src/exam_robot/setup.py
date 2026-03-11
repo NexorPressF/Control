@@ -10,6 +10,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        # Launch файлы
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+        # URDF файлы - ВАЖНО!
+        (os.path.join('share', package_name, 'urdf'), glob('urdf/*.urdf')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
